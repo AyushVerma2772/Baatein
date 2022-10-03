@@ -1,0 +1,59 @@
+/* Responsive */
+
+/* For Jio phone */
+@media screen and (min-width: 100px) and (max-width:339px) {
+    html {
+        font-size: 4.5px;
+    }
+}
+
+/* For small screen mobile */
+@media screen and (max-width: 390px) {
+    html {
+        font-size: 6px;
+    }
+    
+}
+
+
+/* For Mobile medium and large screen */
+@media screen and (min-width: 390px) and (max-width: 620px) {
+    html {
+        font-size: 7px;
+    }
+}
+
+
+
+/* For tablet and landscape mobiles */
+@media screen and (min-width: 620px) and (max-width:900px) {
+    html {
+        font-size: 7.5px;
+    }
+
+}
+
+/* For small laptop screens */
+@media screen and (min-width: 901px) and (max-width:1024px) {
+    html {
+        font-size: 8.4px;
+    }
+
+}
+
+/* For medium laptop screens */
+@media screen and (min-width: 1025px) and (max-width:1279px) {
+    html {
+        font-size: 8.7px;
+    }
+
+}
+
+/* For Large laptop screens */
+@media screen and (min-width: 1280) and (max-width:2000px) {
+    html {
+        font-size: 10px;
+    }
+
+}
+

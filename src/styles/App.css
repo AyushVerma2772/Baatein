@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Poppins:wght@400&family=Ubuntu&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+.main {
+    min-height: 100vh;
+    min-width: 100vw;
+    /* background: #0C2295;
+    background: -webkit-linear-gradient(bottom left, #0C2295, #DC3CD1);
+    background: -moz-linear-gradient(bottom left, #0C2295, #DC3CD1); */
+    background: linear-gradient(to top right, #0C2295, #DC3CD1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    font-size: 1.8rem;
+    color: #410179;
+    cursor: pointer;
+}
+
+
+.owner {
+    flex-direction: row-reverse !important;
+}
+
+.owner img, .owner p {
+    align-self: flex-end !important;
+}
+
+.owner p {
+    background-color: #6C0BA9;
+    color: #fffefe;
+    border-radius: 1rem 1rem 0 1rem;
+}
+
+.menu {
+    font-size: 2.5rem;
+    color: #410179;
+    font-weight: bold;
+    border: 0;
+    background-color: transparent;
+    display: none;
+    z-index: 99 !important;
+}
