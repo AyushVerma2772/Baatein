@@ -43,7 +43,7 @@ const ChatAreaNav = () => {
         <>
             <Navbar className='d-flex' >
 
-                <UserName>{data.user.displayName || 'Select an user'}</UserName>
+                <UserName>{data.user.displayName || 'Select an user for chat'}</UserName>
 
                 <IconBox className='d-flex' >
                     <BsFillCameraVideoFill className='icon' />
