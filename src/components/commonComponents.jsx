@@ -96,3 +96,10 @@ export const LoadingMsg = styled.span`
   font-family: ${primaryFont};
   font-weight: bold;
 `;
+
+export const ProfileImage = styled.img`
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+`;

@@ -1,12 +1,5 @@
 /* Responsive */
 
-/* For Jio phone */
-@media screen and (min-width: 100px) and (max-width:339px) {
-    html {
-        font-size: 4.5px;
-    }
-}
-
 /* For small screen mobile */
 @media screen and (max-width: 390px) {
     html {
@@ -22,7 +15,6 @@
         font-size: 7px;
     }
 }
-
 
 
 /* For tablet and landscape mobiles */

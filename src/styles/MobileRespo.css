@@ -9,6 +9,7 @@
     .chat-room {
         position: relative;
         width: 85% !important;
+        height: 83vh !important;
     }
 
     .sidebar {

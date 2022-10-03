@@ -48,6 +48,7 @@ const RightBox = styled.div`
     height: 100%;
     width: 25%;
     justify-content: space-around;
+    ${mobile1({width: '38%'})}
 `;
 
 const SendButton = styled.button`

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { purple, secondaryFont } from './commonComponents';
+import { ProfileImage, purple, secondaryFont } from './commonComponents';
 import { BsFillCameraVideoFill } from "react-icons/bs";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -15,7 +15,17 @@ const Navbar = styled.nav`
     padding: 0 1.5rem;
     background-color: #b86dff;
     justify-content: space-between;
+    ${mobile1({paddingLeft: '6rem'})}
 `;
+
+const UserInfo = styled.div`
+    width: 70%;
+    overflow: hidden;
+    height: 100%;
+
+    gap: 1rem;
+    justify-content: flex-start;
+`
 
 const UserName = styled.div`
     height: 3.2rem;
@@ -25,7 +35,8 @@ const UserName = styled.div`
     color: ${purple};
     font-weight: 600;
     overflow: hidden;
-    ${mobile1({marginLeft: '5rem', width: '50%'})}
+
+    ${mobile1({ marginLeft: '2rem', width: '50%' })}
 `;
 
 const IconBox = styled.div`
@@ -43,7 +54,14 @@ const ChatAreaNav = () => {
         <>
             <Navbar className='d-flex' >
 
-                <UserName>{data.user.displayName || 'Select an user for chat'}</UserName>
+
+
+                {/* <UserName>{data.user.displayName || 'Select an user'}</UserName> */}
+
+                <UserInfo className='d-flex' >
+                    <ProfileImage src={data.user.photoURL} onClick={(e) => {window.open(e.target.src, '_blank')}} />
+                    <UserName>{data.user.displayName || 'Select an user'}</UserName>
+                </UserInfo>
 
                 <IconBox className='d-flex' >
                     <BsFillCameraVideoFill className='icon' />

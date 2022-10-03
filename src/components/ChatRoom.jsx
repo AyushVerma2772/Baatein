@@ -19,7 +19,7 @@ const ChatContainer = styled.div`
 
 
 const ChatRoom = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     return (
         <>
             <ChatContainer className='d-flex chat-room' >

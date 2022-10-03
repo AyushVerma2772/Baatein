@@ -14,7 +14,8 @@ const Nav = styled.nav`
     background-color: ${purple};
     padding: 0 0.5rem;
     justify-content: space-around;
-    ${mobile1({borderBottom: `0.1rem solid ${white}`})}
+    ${mobile1({borderBottom: `0.1rem solid ${white}`, paddingLeft: '6rem'})}
+    
     
 `;
 
@@ -77,7 +78,7 @@ const Navbar = () => {
 
                     <UserInfo className='d-flex' >
                         <UserName>{currentUser.displayName}</UserName>
-                        <UserImage src={currentUser.photoURL} alt='' />
+                        <UserImage src={currentUser.photoURL} alt='' onClick={(e) => {window.open(e.target.src, '_blank')}} />
                     </UserInfo>
 
                     <LogoutButton title='log out' onClick={() => signOut(auth)}>Log out</LogoutButton>

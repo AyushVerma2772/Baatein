@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mobile1 } from '../styles/Responsive';
-import { primaryFont, purple, lightPurple, white } from './commonComponents';
+import { primaryFont, purple, lightPurple, white, ProfileImage } from './commonComponents';
 
 
 const Card = styled.div`
@@ -20,12 +20,6 @@ const Card = styled.div`
     ${mobile1({borderBottom: `0.1rem solid ${white}`})}
 `;
 
-const ProfileImage = styled.img`
-    width: 4.5rem;
-    height: 4.5rem;
-    border-radius: 50%;
-    object-fit: cover;
-`;
 
 const UserInfo = styled.div`
     width: 80%;
@@ -59,9 +53,9 @@ const RecentMsg = styled.p`
 const ChatCard = ({name, recentMsg, profilePic, onCLickFunc}) => {
     return (
         <>
-            <Card className='d-flex' onClick={onCLickFunc}  >
-                <ProfileImage src={profilePic} alt='user' />
-                <UserInfo className='d-flex' >
+            <Card className='d-flex' >
+                <ProfileImage src={profilePic} alt='user' onClick={(e) => {window.open(e.target.src, '_blank')}} />
+                <UserInfo className='d-flex'  onClick={onCLickFunc}  >
                     <UserName>{name}</UserName>
                     <RecentMsg>{recentMsg}</RecentMsg>
                 </UserInfo>

@@ -48,7 +48,7 @@ const Message = ({ message }) => {
 
                     {message.img && <ImgMsg src={message.img} alt="" />}
 
-                    <TextMsg>{message.text}</TextMsg>
+                    <TextMsg onClick={() => {console.log(Date(message.date.seconds))}} >{message.text}</TextMsg>
                 </MessageContent>
             </MessageContainer>
         </>

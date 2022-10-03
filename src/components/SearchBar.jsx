@@ -163,7 +163,7 @@ const SearchBar = () => {
     return (
         <>
             <SearchContainer>
-                <SearchInput placeholder='Add Friend' type='text' spellCheck="false" onChange={(e) => setUsername(e.target.value)}
+                <SearchInput placeholder='Search for a user' type='text' spellCheck="false" onChange={(e) => setUsername(e.target.value)}
                     value={username} />
 
                 <SearchButton onClick={handleSearch} ><MdPersonSearch className='mdp d-flex' /></SearchButton>
@@ -177,12 +177,12 @@ const SearchBar = () => {
 
                 {user && (
                     <Card className='d-flex'>
-                        <ProfileImage src={user.photoURL} alt='user' />
+                        <ProfileImage src={user.photoURL} alt='user' onClick={(e) => {window.open(e.target.src, '_blank')}} />
 
                         <UserName>{user.displayName}</UserName>
 
                         <button style={{ border: 0, backgroundColor: 'transparent', cursor: 'pointer' }} 
-                        onClick={handleSelect} ><AddUser /></button>
+                        onClick={handleSelect} title='Add this user to your friend list' ><AddUser /></button>
                     </Card>
                 )}
 
