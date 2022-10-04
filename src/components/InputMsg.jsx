@@ -55,11 +55,12 @@ const SendButton = styled.button`
     width: 8rem;
     font-size: 1.5rem;
     font-family: ${secondaryFont};
-    background-color: ${purple};
+    /* background-color: ${purple}; */
+    background-color: ${props => props.bgDisable || `${purple}`};
     color: ${white};
     padding: 0.8rem 1rem;
     border: 0;
-    cursor: pointer;
+    cursor: ${props => props.cursorDisable || 'pointer'};
     border-radius: 0.5rem;
     justify-content: space-between;
 `;
@@ -77,12 +78,29 @@ const InputMsg = () => {
 
     const [text, setText] = useState("");
     const [img, setImg] = useState(null);
+    const [disable, setDisable] = useState(true)
 
     const { currentUser } = useContext(AuthContext);
     const { data } = useContext(ChatContext);
 
+    const handelChange = (e) => {
+        const msg = e.target.value;
+        setText(msg);
+        console.log(disable)
+        if (msg.trim() === "") {
+            setDisable(true)
+        }
+        
+        else {
+            setDisable(false)
+        }
+
+    }
+
     const handleSend = async () => {
+
         if (img) {
+            console.log("Elif")
             const storageRef = ref(storage, uuid());
 
             const uploadTask = uploadBytesResumable(storageRef, img);
@@ -104,7 +122,9 @@ const InputMsg = () => {
                     });
                 }
             );
-        } else {
+        } 
+
+        else {
             await updateDoc(doc(db, "chats", data.chatId), {
                 messages: arrayUnion({
                     id: uuid(),
@@ -131,13 +151,14 @@ const InputMsg = () => {
 
         setText("");
         setImg(null);
+        setDisable(true)
     };
 
     return (
         <>
             <InputBox className='d-flex' >
                 <Input placeholder='Type Something...'
-                    onChange={(e) => setText(e.target.value)}
+                    onChange={handelChange}
                     value={text} />
 
                 <RightBox className='d-flex' >
@@ -147,7 +168,8 @@ const InputMsg = () => {
                     <input type="file" name="file" id="file" style={{ display: 'none' }} onChange={(e) => setImg(e.target.files[0])}
                     />
 
-                    <SendButton className='d-flex' onClick={handleSend} >Send <AiOutlineSend /></SendButton>
+                    <SendButton className='d-flex' onClick={handleSend} disabled={disable} bgDisable={disable  && 'gray'} cursorDisable={disable && 'no-drop'} >Send <AiOutlineSend /></SendButton>
+
                 </RightBox>
 
             </InputBox>

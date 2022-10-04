@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { AuthContext } from '../context/AuthContext';
-
+import { IoMdDoneAll } from "react-icons/io";
 import { primaryFont, white } from './commonComponents';
 
 const MessageContainer = styled.div`
@@ -13,6 +13,8 @@ const MessageContent = styled.div`
     max-width: 80%;
     display: flex;
     flex-direction: column;
+    /* overflow-x: hidden; */
+    height: auto;
 `;
 
 const ImgMsg = styled.img`
@@ -24,11 +26,12 @@ const TextMsg = styled.p`
     font-family: ${primaryFont};
     font-size: 1.3rem;
     padding: 0.7rem;
-    max-width: max-content;
+    max-width: 100%;
     word-wrap: break-word;
     border-radius: 1rem 1rem 1rem 0;
     
 `;
+
 
 
 const Message = ({ message }) => {
@@ -45,10 +48,9 @@ const Message = ({ message }) => {
         <>
             <MessageContainer ref={ref} className={`${message.senderId === currentUser.uid && "owner"}`} >
                 <MessageContent >
-
-                    {message.img && <ImgMsg src={message.img} alt="" />}
-
-                    <TextMsg onClick={() => {console.log(Date(message.date.seconds))}} >{message.text}</TextMsg>
+                    {message.img && <ImgMsg src={message.img} alt="" onClick={(e) => {window.open(e.target.src, '_blank')}}  />}
+                    <TextMsg>{message.text}</TextMsg>
+                    <IoMdDoneAll className='tick' />
                 </MessageContent>
             </MessageContainer>
         </>

@@ -41,7 +41,8 @@ html {
     flex-direction: row-reverse !important;
 }
 
-.owner img, .owner p {
+.owner img,
+.owner p {
     align-self: flex-end !important;
 }
 
@@ -49,6 +50,17 @@ html {
     background-color: #6C0BA9;
     color: #fffefe;
     border-radius: 1rem 1rem 0 1rem;
+}
+
+.tick {
+    display: none;
+    align-self: flex-end;
+    color: #4b4b4b;
+    font-size: 1.3rem;
+}
+
+.owner .tick {
+    display: block;
 }
 
 .menu {
