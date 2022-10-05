@@ -100,7 +100,6 @@ const InputMsg = () => {
     const handleSend = async () => {
 
         if (img) {
-            console.log("Elif")
             const storageRef = ref(storage, uuid());
 
             const uploadTask = uploadBytesResumable(storageRef, img);
@@ -165,7 +164,7 @@ const InputMsg = () => {
 
                     <Label htmlFor='file'><AddImgIcon /></Label>
 
-                    <input type="file" name="file" id="file" style={{ display: 'none' }} onChange={(e) => setImg(e.target.files[0])}
+                    <input type="file" name="file" id="file" style={{ display: 'none' }} onChange={(e) => {setImg(e.target.files[0]); setDisable(false)}}
                     />
 
                     <SendButton className='d-flex' onClick={handleSend} disabled={disable} bgDisable={disable  && 'gray'} cursorDisable={disable && 'no-drop'} >Send <AiOutlineSend /></SendButton>

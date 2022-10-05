@@ -7,7 +7,6 @@ import { AuthContext } from '../context/AuthContext';
 import { mobile1 } from '../styles/Responsive';
 
 
-
 const Nav = styled.nav`
     height: 6.5rem;
     width: 100%;
@@ -43,6 +42,7 @@ const UserImage = styled.img`
     border-radius: 50%;
     margin: 0 0.9rem;
     object-fit: cover;
+    cursor: pointer;
 `;
 
 const UserName = styled.span`
@@ -71,7 +71,7 @@ const Navbar = () => {
 
     return (
         <>
-            <Nav className='d-flex' >
+            <Nav className='d-flex'>
                 <NameLogo>Baatein</NameLogo>
 
                 <RightNav className='d-flex' >

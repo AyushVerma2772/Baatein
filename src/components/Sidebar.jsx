@@ -12,6 +12,7 @@ const SideContainer = styled.div`
     height: inherit;
     border-right: 0.2rem solid ${purple};
     ${mobile1({borderRight: '0', backgroundColor: `${purple}`})}
+    z-index: 9;
 `;
 
 

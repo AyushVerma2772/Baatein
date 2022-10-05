@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { AuthContext } from '../context/AuthContext';
 import { IoMdDoneAll } from "react-icons/io";
 import { primaryFont, white } from './commonComponents';
+import { MdOutlineDownloadForOffline } from "react-icons/md";
 
 const MessageContainer = styled.div`
     margin-bottom: 1.5rem;
@@ -15,10 +16,16 @@ const MessageContent = styled.div`
     flex-direction: column;
     /* overflow-x: hidden; */
     height: auto;
+    position: relative;
 `;
 
-const ImgMsg = styled.img`
+const ImageBox = styled.div`
     width: 50%;
+    position: relative;
+`
+
+const ImgMsg = styled.img`
+    width: 100%;
 `;
 
 const TextMsg = styled.p`
@@ -32,6 +39,19 @@ const TextMsg = styled.p`
     
 `;
 
+
+const DownloadButton = styled.a`
+    text-decoration: none;
+    color: #0059ffbe;
+    font-size: 2.8rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    &:hover {
+        color: #0059ff;
+    }
+`;
 
 
 const Message = ({ message }) => {
@@ -48,8 +68,22 @@ const Message = ({ message }) => {
         <>
             <MessageContainer ref={ref} className={`${message.senderId === currentUser.uid && "owner"}`} >
                 <MessageContent >
-                    {message.img && <ImgMsg src={message.img} alt="" onClick={(e) => {window.open(e.target.src, '_blank')}}  />}
-                    <TextMsg>{message.text}</TextMsg>
+
+                    {/* Image */}
+                    {
+                        message.img &&
+                        <ImageBox className='img-box'  >
+                            <ImgMsg src={message.img} alt="" onClick={(e) => {window.open(e.target.src, '_blank')}}  />
+                            <DownloadButton href={message.img} target='_blank' download><MdOutlineDownloadForOffline /></DownloadButton>
+                        </ImageBox>
+                    }
+
+
+                    {/* Text Message */}
+                    {
+                        message.text ? <TextMsg>{message.text}</TextMsg> : <TextMsg style={{ display: 'none' }} ></TextMsg>
+                    }
+
                     <IoMdDoneAll className='tick' />
                 </MessageContent>
             </MessageContainer>

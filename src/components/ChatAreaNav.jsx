@@ -22,21 +22,19 @@ const UserInfo = styled.div`
     width: 70%;
     overflow: hidden;
     height: 100%;
-
     gap: 1rem;
     justify-content: flex-start;
 `
 
 const UserName = styled.div`
     height: 3.2rem;
-    width: 30%;
+    max-width: 70%;
     font-family: ${secondaryFont};
     font-size: 2.4rem;
     color: ${purple};
     font-weight: 600;
     overflow: hidden;
-
-    ${mobile1({ marginLeft: '2rem', width: '50%' })}
+    ${mobile1({ marginLeft: '2rem', maxWidth: '70%' })}
 `;
 
 const IconBox = styled.div`
@@ -44,7 +42,6 @@ const IconBox = styled.div`
     justify-content: space-around;
     height: 3rem;
 `;
-
 
 const ChatAreaNav = () => {
 

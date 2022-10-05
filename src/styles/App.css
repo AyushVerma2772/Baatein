@@ -41,9 +41,12 @@ html {
     flex-direction: row-reverse !important;
 }
 
-.owner img,
 .owner p {
     align-self: flex-end !important;
+}
+
+.owner .img-box {
+    align-self: flex-end;
 }
 
 .owner p {
