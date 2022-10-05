@@ -78,15 +78,14 @@ const InputMsg = () => {
 
     const [text, setText] = useState("");
     const [img, setImg] = useState(null);
-    const [disable, setDisable] = useState(true)
-
+    const [disable, setDisable] = useState(true);
     const { currentUser } = useContext(AuthContext);
     const { data } = useContext(ChatContext);
 
     const handelChange = (e) => {
         const msg = e.target.value;
         setText(msg);
-        console.log(disable)
+        // console.log(disable)
         if (msg.trim() === "") {
             setDisable(true)
         }
